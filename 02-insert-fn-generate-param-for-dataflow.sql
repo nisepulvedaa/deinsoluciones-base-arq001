@@ -1,4 +1,3 @@
---SFTP
 INSERT INTO `dev_config_zone.process_params` (
     process_name,
     process_fn_name,
@@ -7,16 +6,15 @@ INSERT INTO `dev_config_zone.process_params` (
     active
 ) VALUES (
     'process-{{nombre_proceso}}',
-    'fn-generate-param-for-dataflow',
+    'fn-generate-params-dataflow',
     JSON '''
     [
-        {"query": "SELECT  EMPLOYEENATIONALIDALTERNATEKEY AS identificador ,UPPER(FIRSTNAME) AS nombre ,UPPER(LASTNAME)  AS apellido ,UPPER(TITLE)     AS cargo ,EMAILADDRESS  AS email ,LOGINID   AS cuenta_organizacional,PHONE AS telefono ,GENDER  AS genero ,UPPER(DEPARTMENTNAME)  AS departament FROM ADVENTUREWORKS.DIM_EMPLOYEE ORDER BY FIRSTNAME ASC","output_path": "gs://dev-deinsoluciones-ingestas/origin-files/dotacion-empleados.parquet"}
+        {"query": "{{query}}","output_path": "{{buckets_path_name}}{{buckets_file_name}}", "file_name": "{{file_json_name}}"}
     ]
     ''',
     'workflow-arquetipo-ingesta-connect-to-oracle',
     TRUE
 );
-
 
 ----
 SELECT

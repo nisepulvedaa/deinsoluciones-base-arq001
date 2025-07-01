@@ -9,7 +9,7 @@ INSERT INTO `dev_config_zone.process_params` (
     'fn-validacion-de-archivo-gcs',
     JSON '''
     [
-        {"path_name": "origin-files/{{path_destino}}/{{nombre_archivo1}}.parquet", "periodicidad": "{{periodicidad}}"}
+        {"path_name": "origin-files/{{buckets_file_name}}", "periodicidad": "{{periodicidad}}"}
     ]
     ''',
     'workflow-arquetipo-ingesta-connect-to-oracle',
