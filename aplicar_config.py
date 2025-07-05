@@ -9,7 +9,6 @@ VARIABLES_PERMITIDAS = {
     "periodicidad",
     "buckets_path_name",
     "buckets_file_name",
-    "path_destino",
     "query",
     "correos_destinatarios",
     "file_json_name"
